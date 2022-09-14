@@ -7,7 +7,7 @@ import java.util.Arrays;
  * the queue starts out at the head of the array, allowing the queue to grow and
  * shrink in constant time.
  *
- * TODO: This implementation contains three bugs! Use your tests to determine the
+ * TOD: This implementation contains three bugs! Use your tests to determine the
  * source of the bugs and correct them!
  *
  * @author Alex Lockwood
@@ -73,11 +73,14 @@ public class ArrayIntQueue implements IntQueue {
 
     /** {@inheritDoc} */
     public boolean isEmpty() {
-        return size >= 0;
+        return size == 0;
     }
 
     /** {@inheritDoc} */
     public Integer peek() {
+        if (isEmpty()){
+            return null;
+        }
         return elementData[head];
     }
 

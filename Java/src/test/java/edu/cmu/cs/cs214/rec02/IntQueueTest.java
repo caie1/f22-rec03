@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 
 /**
- * TODO: Write more unit tests to test the implementation of ArrayIntQueue
+ * TOD: Write more unit tests to test the implementation of ArrayIntQueue
  * for the {@link LinkedIntQueue} and
  * {@link ArrayIntQueue} classes, as described in the handout. The
  * {@link ArrayIntQueue} class contains a few bugs. Use the tests you wrote for
@@ -33,10 +33,21 @@ public class IntQueueTest {
     @Before
     public void setUp() {
         // comment/uncomment these lines to test each class
-        mQueue = new LinkedIntQueue();
-//        mQueue = new ArrayIntQueue();
+        // mQueue = new LinkedIntQueue();
+       mQueue = new ArrayIntQueue();
 
         testList = new ArrayList<>(List.of(1, 2, 3));
+    }
+
+    @Test
+    public void testClear(){
+        mQueue.clear();
+        assertTrue(mQueue.isEmpty());
+    }
+
+    @Test
+    public void testDequeueEmptyCase(){
+        assertNull(mQueue.dequeue());
     }
 
     @Test
@@ -53,6 +64,16 @@ public class IntQueueTest {
     @Test
     public void testPeekEmptyQueue() {
         assertNull(mQueue.peek());
+    }
+
+    
+
+    @Test
+    public void testPeekOneElementQueue() {
+        mQueue.enqueue(1);
+        assertTrue(mQueue.size() == 1);
+        assertTrue(mQueue.peek() == 1);
+        assertTrue(mQueue.size() == 1);
     }
 
     @Test

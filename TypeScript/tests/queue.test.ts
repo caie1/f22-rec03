@@ -8,6 +8,48 @@ let createQueue = newLinkedListIntQueue
 // TODOs:
 // write more test cases to test dequeue and clear functions.
 
+describe("test dequeue: ", () => {
+    test("test empty queue", () =>{
+        const queue = createQueue()
+        expect(queue.dequeue()).toBeNull
+    })
+    test("test one element", () =>{
+        const queue = createQueue()
+        queue.enqueue(2)
+        expect(queue.size()).toBe(1)
+        expect(queue.dequeue()).toBe(2)
+        expect(queue.size()).toBe(0)
+    })
+    test("test two elements", () =>{
+        const queue = createQueue()
+        queue.enqueue(2)
+        queue.enqueue(3)
+        expect(queue.dequeue()).toBe(3)
+        
+    })
+})
+describe("test clear: ", () =>{
+    test("clear full queue", () => {
+        const queue = createQueue()
+        queue.enqueue(2)
+        queue.enqueue(3)
+        queue.clear
+        expect(queue.isEmpty).toBeTruthy
+    })
+    test("clear full queue", () => {
+        const queue = createQueue()
+        queue.clear
+        expect(queue.isEmpty).toBeTruthy
+    })
+})
+
+test("test size: clear full queue", () => {
+    const queue = createQueue()
+    queue.enqueue(2)
+    queue.enqueue(3)
+    expect(queue.size()).toBe(2)
+})
+
 test("test isEmpty: newly created list should be empty", () => {
     expect(createQueue().isEmpty()).toBeTruthy()
 })

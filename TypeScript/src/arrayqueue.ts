@@ -75,6 +75,7 @@ function newArrayIntQueue (): IntQueue {
       head = 0
     },
 
+    
     dequeue: function (): number | null {
       if (this.isEmpty()) {
         return null
